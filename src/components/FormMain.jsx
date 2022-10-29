@@ -1,7 +1,10 @@
+import { async } from "@firebase/util";
 import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import GoogleButton from "react-google-button";
 
 const FormMain = ({ title, handleClick }) => {
+  const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
@@ -33,10 +36,10 @@ const FormMain = ({ title, handleClick }) => {
               className="mb-3 "
               controlId="formBasicCheckbox"
             ></Form.Group>
-            <Col className="text-center">
+            <Col className="text-center ">
               <Button
+                className="mb-2"
                 variant="primary"
-                /* type="submit" */
                 onClick={() => handleClick(email, pass)}
               >
                 {title}

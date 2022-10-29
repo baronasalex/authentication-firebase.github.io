@@ -3,21 +3,24 @@ import { useDispatch } from "react-redux";
 import { useAuth } from "../hooks/use-auth";
 import { removeUser } from "../store/slices/userSlice";
 import { Container, Navbar, Button, Row, Col } from "react-bootstrap";
+import { UserAuth } from "../context/AuthContext";
 
 const HomePage = () => {
   const dispatch = useDispatch();
 
   const { isAuth, email } = useAuth();
 
+  const { user, logOut } = UserAuth();
+
   return isAuth ? (
     <div>
       <Navbar>
         <Container>
-          <Navbar.Brand href="#home">Page</Navbar.Brand>
+          <Navbar.Brand href="#home">Welcome Page</Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-              Signed in as: {email}{" "}
+              Signed in as: {user?.displayName}{" "}
               <Button
                 size="sm"
                 variant="warning"
@@ -32,7 +35,7 @@ const HomePage = () => {
       <Container>
         <Row>
           <Col className="justify-content-md-center sm={12}">
-            <h1>Welcome {email}</h1>
+            <h1>Welcome {user?.displayName}</h1>
           </Col>
         </Row>
       </Container>
