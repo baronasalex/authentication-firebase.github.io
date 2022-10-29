@@ -12,7 +12,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { googleSignIn } = UserAuth();
+  const { googleSignIn, user } = UserAuth();
 
   const handleGoogleSignIn = async () => {
     try {

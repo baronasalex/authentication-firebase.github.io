@@ -4,7 +4,6 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 
 const FormMain = ({ title, handleClick }) => {
-  const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
